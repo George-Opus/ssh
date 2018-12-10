@@ -1,0 +1,30 @@
+#!/bin/bash
+
+
+
+while true :
+do
+	dev=$(who | awk 'NR!=0 {print $2}')
+	fichier=/dev/$dev
+	#echo $fichier
+	if [ "$dev" != "" ]
+	then	
+		if [ -e "$fichier" ]
+		then
+			echo "
+			
+			
+			
+			
+			coucou toi je t'ai vue
+			
+			
+			
+			
+			
+			" > /dev/$dev
+			kill -9 $(ps aux | grep ssh | grep $dev | awk '{print $2}')
+
+		fi
+	fi
+done
